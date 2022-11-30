@@ -17,6 +17,8 @@ if (Number.isInteger(formalMounth)==true && Number.isInteger(formalDay)==true &&
     } else { console.log(`Onoodor ${formalYear}-${formalMounth}-${formalDay}`)}
 } else {console.log("Bvhel too oruulna uu")};
 
+
+//akjdlkf
 /*
 
 
