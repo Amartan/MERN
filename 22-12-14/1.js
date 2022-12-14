@@ -26,7 +26,8 @@ function addTask (){
     liDivEdit.innerHTML = "&#9998"
     liDivEdit.addEventListener("click", function (){
         
-        liDivText.setAttribute("type", "input")
+        liDivText.innerHTML = prompt("Өөрчлөх утгаа оруул")
+        // liDivText.setAttribute("type", "input")
         // liDivText.inputMode = "text"
     })
 
