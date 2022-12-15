@@ -11,7 +11,7 @@ let rem = document.getElementById("remaining");
 // let newTask = getElementById("new-task");
 // let taskPlus = getElementById("task-nemeh");
 
-function addTask (){
+function addTask() {
     let list = document.getElementById("list");
     let li = document.createElement("li");
     li.style.backgroundColor = "#fff"
@@ -24,8 +24,8 @@ function addTask (){
 
     let liDivEdit = document.createElement("button")
     liDivEdit.innerHTML = "&#9998"
-    liDivEdit.addEventListener("click", function (){
-        
+    liDivEdit.addEventListener("click", function () {
+
         liDivText.innerHTML = prompt("Өөрчлөх утгаа оруул")
         // liDivText.setAttribute("type", "input")
         // liDivText.inputMode = "text"
@@ -33,9 +33,10 @@ function addTask (){
 
     let liDivDone = document.createElement("button")
     liDivDone.innerHTML = "&#10003"
-    liDivDone.addEventListener("click", function(){
-        
-        li.style.backgroundColor = "#999"})
+    liDivDone.addEventListener("click", function () {
+
+        li.style.backgroundColor = "#999"
+    })
     // liDivDone.addEventListener("click", function(){
     //     if(li.style.backgroundColor == "#fff"){
     //     li.style.backgroundColor = "#999"
@@ -44,7 +45,7 @@ function addTask (){
 
     let liDivDel = document.createElement("button")
     liDivDel.innerHTML = "ustgah"
-    liDivDel.addEventListener("click", function() {
+    liDivDel.addEventListener("click", function () {
         li.remove();
     })
 
