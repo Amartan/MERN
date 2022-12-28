@@ -15,7 +15,7 @@ function getData () {
 
         // data.products
 
-    }).catch(err=>console.log("dd"));
+    }).catch(err=>console.log("error"));
 }
 
 
@@ -41,10 +41,29 @@ let row = "";
     products.innerHTML = row;
 }
 
+// function fillCategory (){
+//     let cat= "";
+//     let catList = "";
+//     productsData.map((pro, index)=> {
+//         cat += `<p> ${pro.category}</p>`
+//     })
+//     console.log(cat)
+//     category.innerHTML = cat;
+// }
+
 function fillCategory (){
-    let cat= "";
-    productsData.map((pro, index)=> {
-        cat += `<p>${pro.category}</p>`
-})
-    category.innerHTML = cat;
+    console.log(productsData[1].category)
+    let cat= [];
+    let catList = [];
+    for (i=0; i<productsData.length; i++){
+        cat[i] = productsData[i].category
+        // console.log(cat[i])
+    }
+    catList = [...new Set(cat)]
+    let list = ""
+    for(i=0; i<catList.length; i++){
+        list += `<p> ${catList[i]}</p>`
+    }
+    category.innerHTML = list
+    // category.innerHTML = cat;
 }
