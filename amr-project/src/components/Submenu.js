@@ -1,11 +1,11 @@
-export default function Submenu (submenu){
-  return(
+export default function Submenu(submenu) {
+  return (
     <div>
       <ul>
-        {submenu.map((e)=>(
+        {submenu.map((e) => (
           <li>{e}</li>
         ))}
       </ul>
     </div>
-  )
+  );
 }
