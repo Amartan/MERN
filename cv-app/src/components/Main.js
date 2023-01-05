@@ -30,11 +30,7 @@ export default function Main({ user, techs, greetPeople, showDate }) {
     let imgPa = "https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper.png";
 
     const users = [
-        {
-            img: imgPa,
-            firstname: "Bold",
-            lastname: "Dulam"
-        },
+        { img: imgPa, firstname: "Bold", lastname: "Dulam"},
         { img: imgPa, firstname: "Gan", lastname: "Lkham" },
         { img: imgPa, firstname: "Sukh", lastname: "Khorloo" },
         { img: imgPa, firstname: "Gonchig", lastname: "Lkhagva" },
