@@ -3,9 +3,14 @@ import "./App.css";
 import Header from "./components/Header";
 import Section from "./components/Section";
 import Submenu from "./components/Submenu";
+import Article from "./components/Article";
+import Footer from "./components/Footer";
 
 function App() {
-  const imgList = ["./pic/Leap.png", "./pic/Rectangle.png"];
+  const imgList = {
+    img1: require("../src/pic/Leap.png"),
+    img2: require("../src/pic/Rectangle.png"),
+  };
 
   const menus = [
     "PORTFOLIO",
@@ -29,9 +34,17 @@ function App() {
 
   return (
     <div className="App">
-      <Header logo={imgList} menus={menus} />
-      <Section />
-      <Submenu submenu={submenu} />
+      <div class="container">
+        <Header logo={imgList} menus={menus} />
+        <Section />
+        <Submenu submenu={submenu} />
+        <Article />
+        <Article />
+        <Article />
+        <br />
+        <br />
+        <Footer />
+      </div>
     </div>
   );
 }

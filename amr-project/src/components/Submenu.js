@@ -1,6 +1,7 @@
-export default function Submenu(submenu) {
+export default function Submenu({ submenu }) {
+  console.log(submenu);
   return (
-    <div>
+    <div class="submenu">
       <ul>
         {submenu.map((e) => (
           <li>{e}</li>

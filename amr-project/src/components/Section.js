@@ -1,9 +1,9 @@
 export default function Section() {
   return (
-    <section>
+    <section class="sect">
       <div>
         <h1>Blog Posts</h1>
-        <h1>I think so, this is it.</h1>
+        <h2>I think so, this is it.</h2>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat minima
           error consectetur nam aspernatur laboriosam molestias, distinctio,
@@ -15,7 +15,7 @@ export default function Section() {
         </p>
         <div>
           <a
-            className="App-link"
+            className="App-link link1"
             href="https://reactjs.org"
             target="_blank"
             rel="noopener noreferrer"
@@ -23,7 +23,7 @@ export default function Section() {
             TWITTER
           </a>
           <a
-            className="App-link"
+            className="App-link link2"
             href="https://reactjs.org"
             target="_blank"
             rel="noopener noreferrer"
@@ -31,7 +31,7 @@ export default function Section() {
             LINKEDIN
           </a>
           <a
-            className="App-link"
+            className="App-link link3"
             href="https://reactjs.org"
             target="_blank"
             rel="noopener noreferrer"
@@ -41,7 +41,7 @@ export default function Section() {
         </div>
       </div>
       <div>
-        <img src="./pic/Saly-16.png" alt="a" />
+        <img src={require("../pic/Saly-17.png")} alt="img" />
       </div>
     </section>
   );

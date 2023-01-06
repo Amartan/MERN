@@ -1,7 +1,13 @@
 .App {
   background-color: #fff;
+}
+.container{
+  padding-left: 360px;
+  padding-top: 88px;
   width: 1200px;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* .App-logo {
@@ -21,7 +27,6 @@
   display: flex;
   /* flex-direction: column; */
   align-items: center;
-  justify-content: space-between;
   /* font-size: calc(10px + 2vmin); */
   color: #424242;
 }
@@ -41,4 +46,106 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/*<-------Container style*/
+
+
+
+/*<-------Header style*/
+
+.navbar {
+  width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar ul {
+  display: flex;
+  list-style-type: none;
+}
+
+.navbar li {
+  margin:10px;
+  padding:10px;
+}
+
+/*<-------Section style*/
+.sect{
+  display:flex;
+  flex-direction: row;
+}
+
+.sect h1 {
+  font-size: 52px;
+  color: #D05270;
+}
+
+.sect h2 {
+  font-size: 52px;
+  color: #424242;
+}
+
+
+.App-link {
+  color: white;
+  width: 201px;
+  height: 60px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.link1 {
+  background-color: #47ACDF;
+}
+.link2 {
+  background-color: #1275B1;
+}
+.link3 {
+  background-color: #000
+}
+
+
+
+/*<-------Submenu style*/
+.submenu ul{
+  display: flex;
+  list-style-type: none;
+}
+.submenu li{
+  margin: 5px;
+  padding: 5px;
+}
+
+
+
+/*<-------Article style*/
+.articleContainer {
+  display: flex;
+  flex-direction: row;
+}
+.article{
+  display: flex;
+  flex-direction: column;
+}
+.article img {
+  width:590px;
+  height: 415.49px;
+}
+
+.article h2 {
+  font-size: 29px;
+  color:#D05270
+}
+.articleLink {
+  color: #D05270
+}
+
+
+
+/*<-------Article style*/
+.footer {
+  width:301px;
+  height: 35px;
 }
