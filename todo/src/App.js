@@ -1,14 +1,11 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { useState } from "react";
 
 function App() {
   const [task, setTask] = useState("");
   const [tasks, setTasks] = useState([]);
-
-  const [doneTotal, setDoneTotal] = useState();
-
   const [isDone, setIsDone] = useState(false);
+  const [doneTotal, setDoneTotal] = useState(0);
 
   const addTask = () => {
     const newObj = {
@@ -16,24 +13,21 @@ function App() {
       title: task,
       isDone: false,
     };
-
     const newArr = [...tasks];
     newArr.push(newObj);
-
     setTasks(newArr);
-
     setTask("");
   };
+
   const onDoneTask = (id) => {
     const objList = tasks.map((val) => {
       if (val.id == id) {
         val.isDone = !val.isDone;
-
-        // setDoneTotal(doneTotal + 1);
       }
       return val;
     });
     setTasks(objList);
+    ShowDoneTotal();
   };
 
   function ShowDoneTotal() {
@@ -41,12 +35,33 @@ function App() {
     setDoneTotal(arr.length);
   }
 
+  const Edit = (rand) => {
+    let editItem = prompt("Өөрчлөх утгаа оруулна уу");
+    let editedTasks = [...tasks];
+    editedTasks[rand].title = editItem;
+
+    setTasks(editedTasks);
+
+    // setTask("");
+  };
+
+  const Delete = (ran) => {
+    let deletedTask = [...tasks];
+    deletedTask.map((a, index) => {
+      if (a.id === ran) {
+        deletedTask.splice(index, 1);
+      }
+    });
+    setTasks(deletedTask);
+  };
+
   return (
     <div className="container">
       <div className="row mt-4">
         <div className="col-md-4">
           <h1>Todo List</h1>
-          Total{tasks.length}
+          Total {tasks.length}
+          --------Done Total {doneTotal}
           {/* doneTotal{doneTotal.length} */}
           <div className="d-flex gap-3">
             <input
@@ -75,8 +90,12 @@ function App() {
                 <h4>{e.title}</h4>
               </div>
               <div>
-                <button className="btn btn-warning">Edit</button>
-                <button className="btn btn-danger">Delete</button>
+                <button className="btn btn-warning" onClick={() => Edit(e.id)}>
+                  Edit
+                </button>
+                <button className="btn btn-danger" onClick={() => Delete(e.id)}>
+                  Delete
+                </button>
               </div>
             </div>
           ))}
