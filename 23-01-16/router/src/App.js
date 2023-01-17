@@ -6,6 +6,7 @@ import Contact from "./Pages/Contact";
 import About from "./Pages/About";
 import Person from "./Pages/Person";
 import Enterprise from "./Pages/Enterprise";
+import BookLayout from "./Pages/Booklayout";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
           <Route exact path="/About" element={<About />} />
         </Routes>
       </div>
+
       <footer>2023</footer>
     </div>
   );
