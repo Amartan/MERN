@@ -1,53 +1,121 @@
-import React from "react";
+const news = [
+  {
+    id: "1",
+    title: "We know more now than before, and it’s still alarming",
+    body: "Understanding Long Covid",
+    isTrending: true,
+    category: "Mental Health",
+    read: "9 min read",
+    createdUser: {
+      firstName: "Tom Frieden",
+      lastName: "Dr",
+      userId: "1",
+      userImg: require("../images/1_oTq5RWcSwzoDiuAO_OBhaw.png"),
+      organization: "Forbes",
+    },
+    img: require("../images/1_SIrSIkSoOBiUFvv8wIyYgg.png"),
+    date: "2022-02-01",
+    isSaved: false,
+  },
+  {
+    id: "2",
+    title: "We know more now than before, and it’s still alarming",
+    body: "Understanding Long Covid",
+    isTrending: false,
+    category: "Mental Health",
+    read: "9 min read",
+    createdUser: {
+      firstName: "Tom Frieden",
+      lastName: "Dr",
+      userId: "1",
+      userImg: require("../images/1_oTq5RWcSwzoDiuAO_OBhaw.png"),
+      organization: "Forbes",
+    },
+    img: require("../images/1_SIrSIkSoOBiUFvv8wIyYgg.png"),
+    date: "2022-05-01",
+    isSaved: false,
+  },
+  {
+    id: "3",
+    title: "We know more now than before, and it’s still alarming",
+    body: "Understanding Long Covid",
+    isTrending: false,
+    category: "Mental Health",
+    read: "9 min read",
+    createdUser: {
+      firstName: "Tom Frieden",
+      lastName: "Dr",
+      userId: "1",
+      userImg: require("../images/1_oTq5RWcSwzoDiuAO_OBhaw.png"),
+      organization: "Forbes",
+    },
+    img: require("../images/1_SIrSIkSoOBiUFvv8wIyYgg.png"),
+    date: "2022-06-01",
+    isSaved: false,
+  },
+  {
+    id: "4",
+    title: "We know more now than before, and it’s still alarming",
+    body: "Understanding Long Covid",
+    isTrending: true,
+    category: "Technology",
+    read: "9 min read",
+    createdUser: {
+      firstName: "Tom Frieden",
+      lastName: "Dr",
+      userId: "1",
+      userImg: require("../images/1_oTq5RWcSwzoDiuAO_OBhaw.png"),
+      organization: "Forbes",
+    },
+    img: require("../images/1_SIrSIkSoOBiUFvv8wIyYgg.png"),
+    date: "2023-01-04",
+    isSaved: false,
+  },
+  {
+    id: "5",
+    title: "We know more now than before, and it’s still alarming",
+    body: "Understanding Long Covid",
+    isTrending: true,
+    category: "Technology",
+    read: "9 min read",
+    createdUser: {
+      firstName: "Tom Frieden",
+      lastName: "Dr",
+      userId: "1",
+      userImg: require("../images/1_oTq5RWcSwzoDiuAO_OBhaw.png"),
+      organization: "Forbes",
+    },
+    img: require("../images/1_SIrSIkSoOBiUFvv8wIyYgg.png"),
+    date: "2023-01-07",
+    isSaved: true,
+  },
+];
 
-// export default function Data() {
-//   fetch(
-//     "https://newsdata.io/api/1/news?apikey=pub_157452d7121e9393ebc4eedcc98c355efb6f8&q=breaking%20news"
-//   )
-//     .then((response) => response.json())
-//     .then((data) => console.log(data))
-//     .catch((err) => console.error(err));
-//   return data.product.map(
-//     (
-//       { category, creator, description, keywords, title, image_url, pubDate },
-//       index
-//     ) => {
-//       <div>
-//         <tr>
-//           <td>{index + 1}</td>
-//           <td>{title}</td>
-//           <td>{description}</td>
-//         </tr>
-//       </div>;
-//     }
-//   );
-// }
+const users = [
+  {
+    id: 1,
+    username: "U00001",
+    firstName: "Kylie",
+    organization: "Forbes",
+    password: "qweqwe",
+    type: "superuser",
+  },
+  {
+    id: 2,
+    username: "U83901",
+    firstName: "John",
+    organization: "Forbes",
+    password: "qweqwe",
+    type: "user",
+  },
+  {
+    id: 3,
+    username: "U83902",
+    firstName: "Taylor",
+    organization: "Forbes",
+    password: "qweqwe",
+    type: "user",
+  },
+];
 
-//
-// let row ="";
-// fetch("http://192.168.1.198:4040/product")
-// .then((response) => response.json())
-// .then((data) => {
-//     console.log(data);
-
-//     data.product.map(
-//         ({_id, category, description, price, isSpecial }, index) => {
-
-//     row = `<tr>
-//             <td>${index+1}</td>
-//             <td>${title}</td>
-//             <td>${price}</td>
-//             <td>${description}</td>
-//             <td>
-//                 ${isSpecial ? "Тийм" : "Үгүй"}</td>
-//             <td>
-//             <a href = "./productNew.html?id=${_id}" class="btn btn-secondary">Засах</a>
-//             <a onclick="deleteProduct('${_id}') " class= "btn bg-dander text-light">Устгах</a>
-//             </td>
-//         </tr>`;
-
-//         table.innerHTML += row;
-//         }
-//     );
-// })
-// .catch((err) => console.log(err));
+export { news, users };
