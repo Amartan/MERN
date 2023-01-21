@@ -36,3 +36,67 @@
     transform: rotate(360deg);
   }
 }
+
+/* Header CSS */
+.navbar {
+  width: 100vw;
+  background-color: #FFC017;
+  padding: 0;
+}
+
+.head {
+  width: 1192px;
+}
+
+/* ul.nav {
+  display: flex;
+  align-items: center;
+} */
+
+li.nav-item {
+  margin-left: 25px;
+  display: flex;
+  align-items: center;
+}
+
+.get-started {
+  background-color: black;
+  color:  #FFC017;
+  width: 104.09px;
+  height: 38px;
+  border-radius: 19px;
+}
+
+
+/* Banner CSS */
+
+.banner {
+  width: 100vw;
+  background-color: #FFC017;
+}
+
+
+/* Trending CSS */
+
+.trending {
+  padding-left: 160px;
+}
+
+.sec-1 {
+  display: flex;
+  flex-direction: row;
+}
+
+.trending-card {
+  width: 100vw;
+}
+
+.trndNum {
+  font-size: 30px
+}
+
+.userImg {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+}

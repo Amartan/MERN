@@ -3,8 +3,8 @@ import React from "react";
 export default function Head() {
   return (
     <div>
-      <nav className="navbar bg-body-tertiary">
-        <div className="container-fluid">
+      <nav className="navbar"> 
+        <div className="container-fluid head">
           <a className="navbar-brand" href="#">
             <img
               src={require("../pic/2.png")}
@@ -32,7 +32,7 @@ export default function Head() {
               Sign in
             </li>
             <li className="nav-item">
-              <button>Get started</button>
+              <button className="get-started">Get started</button>
             </li>
           </ul>
         </div>
