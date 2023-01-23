@@ -1,15 +1,19 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import SignUpModal from "./SignUpModal";
 
 export default function LoginModal({
   showModal,
   setShowModal,
   onLogin,
   setAdmin,
+  showSignUp,
+  openSignUp
 }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const [signUp, setSignUp] = useState(false);
   const style = { display: showModal ? "block" : "none" };
 
   return (
@@ -42,12 +46,24 @@ export default function LoginModal({
               >
                 Login
               </button>
+              <button
+                className="btn btn-light pe-4"
+                onClick={() => setSignUp(true)}
+              >
+                Signup
+              </button>
+
+              <SignUpModal
+                Modal={showModal}
+                onLogin={onLogin}
+              />
 
               <button className="btn btn-secondary pe-4" onClick={setShowModal}>
                 Close
               </button>
 
               <span
+                style={{ color: "white" }}
                 onClick={() => {
                   setAdmin(true);
                   navigate("/login");
