@@ -1,6 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
+import LoginModal from "./LoginModal";
 
 export default function Head() {
+
+  // const [openModal, setOpenModal] = useState(false)
+  const [showModal, setShowModal] = useState(false)
   return (
     <div>
       <nav className="navbar"> 
@@ -28,8 +32,8 @@ export default function Head() {
               Write
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#" />
-              Sign in
+              <button className="nav-link" onClick={() => setShowModal(true)}>
+              Sign in</button>
             </li>
             <li className="nav-item">
               <button className="get-started">Get started</button>
@@ -37,6 +41,9 @@ export default function Head() {
           </ul>
         </div>
       </nav>
+      <LoginModal open={showModal} onClose={() => setShowModal(false)}>
+        Modal opened
+      </LoginModal>
     </div>
   );
 }

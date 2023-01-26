@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import "./App.css";
-import { AiFillCaretRight } from "react-icons/ai";
+import { AiFillCaretDown, AiFillCaretRight } from "react-icons/ai";
 import { data } from "./components/Data";
 
 function App() {
   const url = "https://course-api.com/react-tabs-project";
   let [comp, setComp] = useState(0);
+  let [section, setSection] = useState(data[0]);
+  let [opened, setOpened] = useState(false)
+  let [selected, setSelected] = useState(0);
 
   function selector(a) {
     setComp(a);
+    setSection(data[a]);
     console.log(comp);
   }
   return (
@@ -22,37 +26,36 @@ function App() {
             </h4>
           ))}
         </div>
+        {section && (
         <div className="company-content">
-          <h2 className="job-title">Full Stack Web Developer</h2>
-          <p className="company-name">John</p>
-          <p className="date">December 2015 - Present</p>
-          <div className="text">
-            <AiFillCaretRight />
+          <h2 className="job-title">{section.title}</h2>
+          <p className="company-name">{section.company}</p>
+          <p className="date">{section.dates}</p>
+          {section?.duties?.map((b, index) => (
+             <div className="text">
+              {opened && selected == index ? (
+                <AiFillCaretRight 
+                onClick={() => {
+                  setSelected(index)
+                  setOpened(false)
+                }}
+                />
+              ) : (
+                <AiFillCaretDown
+                onClick={() => {
+                  setSelected(index)
+                  setOpened(true)
+                }}
+              />
+              )}
             <p>
-              Tote bag sartorial mlkshk air plant vinyl banjo lumbersexual poke
-              leggings offal cold-pressed brunch neutra. Hammock photo booth
-              live-edge disrupt.
+                <h2>Sub title {index}</h2>
+                {opened && selected == index && b}
             </p>
           </div>
-          <div className="text">
-            <AiFillCaretRight />
-            <p>
-              Post-ironic selvage chambray sartorial freegan meditation.
-              Chambray chartreuse kombucha meditation, man bun four dollar toast
-              street art cloud bread live-edge heirloom.
-            </p>
-          </div>
-          <div className="text">
-            <AiFillCaretRight />
-            <p>
-              Butcher drinking vinegar franzen authentic messenger bag copper
-              mug food truck taxidermy. Mumblecore lomo echo park readymade
-              iPhone migas single-origin coffee franzen cloud bread tilde vegan
-              flexitarian.
-            </p>
-          </div>
+          ))}
+          </div>)}
         </div>
-      </div>
     </section>
   );
 }

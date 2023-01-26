@@ -3,22 +3,16 @@ import { news, users } from "./data";
 
 export default function Body() {
   let cat = news.map((a) => a.category);
-  // console.log(cat);
   let uniqCat = [...new Set(cat)];
-  // console.log(uniqCat);
-  let nws = [...news];
-  // nws = [filter, setFilter] = useState([...news]);
+  let [nws, setNws] = useState(news) 
 
   function Sorter(d) {
-    // nws = [];
-    // console.log(nws);
     let sortedNews = [];
-    // console.log(d);
     for (let i = 0; i < news.length; i++) {
       if (d == news[i].category) {
         sortedNews.push(news[i]);
-
-        console.log(sortedNews);
+        setNws(sortedNews)
+        // console.log(nws);
       }
     }
     // nws = sortedNews;
@@ -60,10 +54,9 @@ export default function Body() {
           ))}
         </div>
       </div>
-      <div className="col-3 d-flex flex-wrap justify-content-center align-items-center">
+      <div className="col-3 d-flex align-content-start flex-wrap">
         {uniqCat.map((b) => (
           <button onClick={() => Sorter(b)}>{b}</button>
-          // <div> s </div>
         ))}
       </div>
     </div>
