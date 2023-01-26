@@ -4,7 +4,7 @@ import LoginModal from "./LoginModal";
 export default function Head() {
 
   // const [openModal, setOpenModal] = useState(false)
-  const [showModal, setShowModal] = useState(false)
+  const [openModal, setOpenModal] = useState(false)
   return (
     <div>
       <nav className="navbar"> 
@@ -32,7 +32,7 @@ export default function Head() {
               Write
             </li>
             <li className="nav-item">
-              <button className="nav-link" onClick={() => setShowModal(true)}>
+              <button className="nav-link" onClick={() => setOpenModal(true)}>
               Sign in</button>
             </li>
             <li className="nav-item">
@@ -41,9 +41,7 @@ export default function Head() {
           </ul>
         </div>
       </nav>
-      <LoginModal open={showModal} onClose={() => setShowModal(false)}>
-        Modal opened
-      </LoginModal>
+      {openModal && <LoginModal closeModal={()=> setOpenModal()}/>}
     </div>
   );
 }
