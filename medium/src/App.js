@@ -7,17 +7,25 @@ import Trending from "./components/trending";
 import Data from "./components/data";
 import TrendingCard from "./components/trendingCard";
 import Body from "./components/body";
+import Admin from "./components/Admin/Admin";
 
 function App() {
   return (
-    <div className="App">
-      <Head />
-      <Banner />
-      <Trending />
-      <TrendingCard />
-      {/* <Data /> */}
-      <hr/>
-      <Body />
+    <div>
+      <div className="App">
+        <Head />
+        <Banner />
+        <Trending />
+        <TrendingCard />
+        {/* <Data /> */}
+        <hr />
+        <Body />
+      </div>
+      <div>
+        {/* <Routes>
+          <Route path="/admin" element={<Admin />} />
+        </Routes> */}
+      </div>
     </div>
   );
 }
