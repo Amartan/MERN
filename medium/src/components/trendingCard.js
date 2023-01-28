@@ -11,6 +11,16 @@ export default function TrendingCard() {
   });
   let trndNum = 1;
   return (
+    <>
+      <div className="trending">
+      <div className="sec-1">
+        <i class="bi bi-arrow-up-right-circle-fill fa-6x"></i>
+        <h6>TRENDING ON MEDIUM</h6>
+      </div>
+      <div>
+        
+    </div>
+  </div>
     <div className="trending-card d-flex align-items-center justify-content-center flex-wrap">
       {trnd.map((e) => (
         <div className="col-md-4">
@@ -42,5 +52,6 @@ export default function TrendingCard() {
         </div>
       ))}
     </div>
+    </>
   );
 }
