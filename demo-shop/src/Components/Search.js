@@ -3,13 +3,13 @@ import data from "./Data";
 
 export default function Search() {
   let [dt, setDt] = useState(data);
+  let [filterDt, setFilterDt] = useState(data);
   let cat = dt.map((a) => a.category);
   let uniqCat = [...new Set(cat)];
 
   function haih(p) {
     let res = [];
-    // if (){}
-    setDt(data);
+    // setDt(data);
 
     if (p.length > 0) {
       for (let i = 0; i < dt.length; i++) {
@@ -19,8 +19,11 @@ export default function Search() {
           // console.log(res);
         }
         console.log(p);
-        setDt(res);
+        setFilterDt(res);
       }
+    } else if (p.length == 0) {
+      res = dt;
+      setFilterDt(res);
     }
   }
 
@@ -63,7 +66,7 @@ export default function Search() {
             return (
               <div>
                 <h2>{e}</h2>
-                {dt.map((c) => {
+                {filterDt.map((c) => {
                   if (c.category == e) {
                     return (
                       <div className="d-flex row">
