@@ -1,0 +1,9 @@
+###
+
+POST http://localhost:9000/user
+Content-Type: "application/json"
+
+###
+
+DELETE http://localhost:9000/user
+Content-Type: "application/json"
