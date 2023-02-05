@@ -1,7 +1,29 @@
+###
 POST http://localhost:8000/api/menu
-Content-Type: "application/json"
+Content-Type: application/json
+
+{
+    "menuName": "hi",
+    "link": "hi",
+    "position": "45"
+}
 
 ###
+GET http://localhost:8000/api/menu
 
-DELETE  http://localhost:8000/api
-Content-Type: "application/json"
+###
+DELETE  http://localhost:8000/api/menu/4a49f0ed-033d-48a0-983a-4e01a30acfd5
+
+###
+PUT http://localhost:8000/api/menu/b0e72c03-12d1-472f-824c-e3aa98ea0cd8
+Content-Type: application/json
+
+{
+    "id": "b0e72c03-12d1-472f-824c-e3aa98ea0cd8",
+    "menuName": "bye",
+    "link": "bye",
+    "position":"45"
+}
+
+
+//  ,"menuName":"1","link":"1","position":"1"

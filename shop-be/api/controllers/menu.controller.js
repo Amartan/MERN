@@ -16,7 +16,7 @@ exports.getAll = (request, response) => {
 };
 
 exports.create = (request, response) => {
-  const { menuName, link } = request.body;
+  const { menuName, link, position } = request.body;
   fs.readFile(dataFile, "utf-8", (readErr, data) => {
     if (readErr) {
       return response.json({ status: false, message: readErr });
@@ -24,7 +24,7 @@ exports.create = (request, response) => {
 
     const parsedData = data ? JSON.parse(data) : [];
 
-    const newObj = { id: uuid.v4(), menuName, link };
+    const newObj = { id: uuid.v4(), menuName, link, position };
 
     parsedData.push(newObj);
 
@@ -38,8 +38,9 @@ exports.create = (request, response) => {
   });
 };
 
-exports.update = (req, res) => {
-  const { id, menuName, link, position } = request.body;
+exports.update = (request, response) => {
+  const {id} = request.params
+  const { menuName, link, position } = request.body;
   fs.readFile(dataFile, "utf-8", (readErr, data) => {
     if (readErr) {
       return response.json({ status: false, message: readErr });
@@ -65,7 +66,7 @@ exports.update = (req, res) => {
   });
 };
 
-exports.delete = (req, res) => {
+exports.delete = (request, response) => {
   const { id } = request.params;
   fs.readFile(dataFile, "utf-8", (readErr, data) => {
     if (readErr) {

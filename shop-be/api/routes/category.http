@@ -1,7 +1,29 @@
+###
 POST http://localhost:8000/api/category
-Content-Type: "application/json"
+Content-Type: application/json
+
+{
+    "categoryName": "hh",
+    "link": "hh",
+    "position": "46"
+}
 
 ###
+GET http://localhost:8000/api/category
 
-DELETE  http://localhost:8000/api
-Content-Type: "application/json"
+###
+DELETE  http://localhost:8000/api/category/30fb4a0b-d1d8-441b-9e37-d6551496f3b3
+
+###
+PUT http://localhost:8000/api/category/c08a406a-6dcf-4c32-ad3c-78b5f4c30a2a
+Content-Type: application/json
+
+{
+    "id": "c08a406a-6dcf-4c32-ad3c-78b5f4c30a2a",
+    "categoryName": "bye",
+    "link": "bye",
+    "position":"23"
+}
+
+
+//  ,"categoryName":"1","link":"1","position":"1"
