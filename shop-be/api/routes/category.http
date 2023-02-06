@@ -3,26 +3,26 @@ POST http://localhost:8000/api/category
 Content-Type: application/json
 
 {
-    "categoryName": "hh",
-    "link": "hh",
-    "position": "46"
+    "categoryName": "haha",
+    "link": "www.haha.mn",
+    "position": "99"
 }
 
 ###
 GET http://localhost:8000/api/category
 
 ###
-DELETE  http://localhost:8000/api/category/30fb4a0b-d1d8-441b-9e37-d6551496f3b3
+DELETE  http://localhost:8000/api/category/a71c9fcd-154d-4c47-be77-a5cf3671262e
 
 ###
-PUT http://localhost:8000/api/category/c08a406a-6dcf-4c32-ad3c-78b5f4c30a2a
+PUT http://localhost:8000/api/category/e2808715-79fb-471c-998f-bdcda3cd7ea5
 Content-Type: application/json
 
 {
-    "id": "c08a406a-6dcf-4c32-ad3c-78b5f4c30a2a",
-    "categoryName": "bye",
-    "link": "bye",
-    "position":"23"
+    "id": "12808715-79fb-471c-998f-bdcda3cd7ea5",
+    "categoryName": "hello",
+    "link": "hello.com",
+    "position":"00"
 }
 
 
