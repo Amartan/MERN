@@ -88,11 +88,11 @@ export default function Users() {
               <select
                 value={category}
                 className="form-control"
-                onChange={(e) => e.target.value}
+                onChange={(e) => setCategory(e.target.value)}
               >
                 <option value={0}>Select</option>
                 {categories.map((item, index) => (
-                  <option value={index}>{item}</option>
+                  <option value={item}>{item}</option>
                 ))}
               </select>
             </div>
