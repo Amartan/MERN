@@ -1,4 +1,6 @@
+const { response } = require("express");
 const fs = require("fs");
+const { request } = require("http");
 const uuid = require("uuid");
 
 const dataFile = process.cwd() + "/data/product.json";
@@ -10,6 +12,19 @@ exports.getAll = (request, response) => {
     }
 
     const savedData = JSON.parse(data);
+
+    return response.json({ status: true, result: savedData });
+  });
+};
+
+exports.get = (request, response) => {
+  const { id } = request.params;
+  fs.readFile(dataFile, "utf-8", (readErr, data) => {
+    if (readErr) {
+      return response.json({ status: false, message: readErr });
+    }
+    const myData = JSON.parse(data);
+    const savedData = myData.filter((e) => e.id == id);
 
     return response.json({ status: true, result: savedData });
   });

@@ -1,4 +1,5 @@
 const fs = require("fs");
+const {parse} = require("path");
 const uuid = require("uuid");
 
 const dataFile = process.cwd() + "/data/category.json";
@@ -39,7 +40,7 @@ exports.create = (request, response) => {
 };
 
 exports.update = (request, response) => {
-  const { id } = request.params
+  const { id } = request.params;
   const { categoryName, link, position } = request.body;
   fs.readFile(dataFile, "utf-8", (readErr, data) => {
     if (readErr) {

@@ -3,26 +3,26 @@ POST http://localhost:8000/api/category
 Content-Type: application/json
 
 {
-    "categoryName": "haha",
-    "link": "www.haha.mn",
-    "position": "99"
+    "categoryName": "he",
+    "link": "www.furniture.mn",
+    "position": "4"
 }
 
 ###
 GET http://localhost:8000/api/category
 
 ###
-DELETE  http://localhost:8000/api/category/a71c9fcd-154d-4c47-be77-a5cf3671262e
+DELETE  http://localhost:8000/api/category/2ac95967-c7b1-4816-97bd-b06a5ab0cb74
 
 ###
-PUT http://localhost:8000/api/category/e2808715-79fb-471c-998f-bdcda3cd7ea5
+PUT http://localhost:8000/api/category/3b2b0138-7f5e-4bdb-b080-a21c28075c98
 Content-Type: application/json
 
 {
-    "id": "12808715-79fb-471c-998f-bdcda3cd7ea5",
-    "categoryName": "hello",
-    "link": "hello.com",
-    "position":"00"
+    "id": "3b2b0138-7f5e-4bdb-b080-a21c28075c98",
+    "categoryName": "Food",
+    "link": "www.food.mn",
+    "position":"3"
 }
 
 

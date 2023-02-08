@@ -12,6 +12,12 @@ Content-Type: application/json
 ###
 GET http://localhost:8000/api/product
 
+
+
+###
+GET http://localhost:8000/api/product/bd2c7093-9a5b-4589-865d-08c7df2d232c
+
+
 ###
 DELETE  http://localhost:8000/api/product/7ab879b0-d2c2-4d5b-adfa-2c31969273df	
 
