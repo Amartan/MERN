@@ -34,26 +34,31 @@ export default function EditModal({ closeModal, editId }) {
       });
   };
 
-  const newPro = {
-    productName: productName,
-    category: category,
-    isSpecial: isSpecial,
-  };
-
   const onUpdate = (productName, category, isSpecial) => {
     // e.preventDefault();
-    console.log(productName, category, isSpecial);
-    const newArr = products.map((item, index) => {
-      if (index == 0) {
-        const newObj = { ...item, productName: "KKKK" };
 
-        return newObj;
-      } else {
-        return item;
-      }
-    });
+    // const newPro = {
+    //   productName: productName,
+    //   category: category,
+    //   isSpecial: isSpecial,
+    // };
 
-    setProducts(newArr);
+    fetch(`http://localhost:8000/api/product${editId}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        // ...newPro,
+        productName: productName,
+        category: category,
+        isSpecial: isSpecial,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data.result);
+        // setProducts(data.result);
+      })
+      .catch((err) => console.log(err));
   };
 
   return (

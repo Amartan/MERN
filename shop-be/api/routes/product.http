@@ -22,11 +22,10 @@ GET http://localhost:8000/api/product/bd2c7093-9a5b-4589-865d-08c7df2d232c
 DELETE  http://localhost:8000/api/product/7ab879b0-d2c2-4d5b-adfa-2c31969273df	
 
 ###
-PUT http://localhost:8000/api/product
+PUT http://localhost:8000/api/product/ac172870-7b2c-4f3a-a7da-b852334adec8
 Content-Type: application/json
 
 {
-    "id": "b0e72c03-12d1-472f-824c-e3aa98ea0cd8",
     "productName": "bye",
     "category": "bye",
     "isSpecial":"true",
