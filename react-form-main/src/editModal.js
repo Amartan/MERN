@@ -1,24 +1,28 @@
 import React, { useState, useEffect } from "react";
 import "./Modal.css";
 
-export default function EditModal({ closeModal, editId }) {
+export default function EditModal({ closeModal, editId, onUpdate }) {
   const [productName, setName] = useState("");
   const [category, setCategory] = useState(0);
   const [isSpecial, setIsSpecial] = useState(false);
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
-  console.log(editId);
+  // console.log(editId);
   useEffect(() => {
     getData();
     getCategory();
+    // onUpdate();
   }, []);
 
   let temp = [];
   const getData = () => {
     fetch(`http://localhost:8000/api/product/${editId}`)
       .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
+      .then(({ result }) => {
+        setName(result[0].productName);
+        setCategory(result[0].category);
+        setIsSpecial(result[0].isSpecial);
+        console.log(result);
         // setProducts(data.result);
       });
   };
@@ -34,32 +38,33 @@ export default function EditModal({ closeModal, editId }) {
       });
   };
 
-  const onUpdate = (productName, category, isSpecial) => {
-    // e.preventDefault();
+  // const onUpdate = (e) => {
+  //   // e.preventDefault();
 
-    // const newPro = {
-    //   productName: productName,
-    //   category: category,
-    //   isSpecial: isSpecial,
-    // };
+  //   const newPro = {
+  //     productName: productName,
+  //     category: category,
+  //     isSpecial: isSpecial,
+  //   };
 
-    fetch(`http://localhost:8000/api/product${editId}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        // ...newPro,
-        productName: productName,
-        category: category,
-        isSpecial: isSpecial,
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data.result);
-        // setProducts(data.result);
-      })
-      .catch((err) => console.log(err));
-  };
+  //   fetch(`http://localhost:8000/api/product/${editId}`, {
+  //     method: "PUT",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify({
+  //       ...newPro,
+  //       productName: productName,
+  //       category: category,
+  //       isSpecial: isSpecial,
+  //     }),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       console.log(data.result);
+  //       closeModal(false);
+  //       setProducts(data.result);
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
 
   return (
     <div className="modal-background">
@@ -71,6 +76,7 @@ export default function EditModal({ closeModal, editId }) {
               <input
                 className="form-control"
                 type="text"
+                // defaultValue={productName}
                 value={productName}
                 onChange={(e) => setName(e.target.value)}
               />
@@ -87,13 +93,6 @@ export default function EditModal({ closeModal, editId }) {
                   <option value={item}>{item}</option>
                 ))}
               </select>
-              {/* <label className="form-label">Category</label>
-              <input
-                className="form-control"
-                type="text"
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
-              /> */}
             </div>
             <div className="mb-3">
               <label className="form-label"> isSpecial?</label>
@@ -106,7 +105,9 @@ export default function EditModal({ closeModal, editId }) {
             </div>
           </div>
           <div className="modal-footer">
-            <button onClick={() => onUpdate(productName, category, isSpecial)}>
+            <button
+              onClick={() => onUpdate(editId, productName, category, isSpecial)}
+            >
               Continue
             </button>
             <button onClick={() => closeModal(false)}>Close</button>

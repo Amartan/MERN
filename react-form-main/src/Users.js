@@ -80,7 +80,7 @@ export default function Users() {
   };
 
   const onDelete = (id) => {
-    console.log(id);
+    // console.log(id);
     fetch(`http://localhost:8000/api/product/${id}`, {
       method: "DELETE",
       // headers: { "Content-Type": "application/json" },
@@ -88,6 +88,29 @@ export default function Users() {
       .then((res) => res.json())
       .then((data) => {
         console.log(data.result);
+        setProducts(data.result);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const onUpdate = (editId, productName, category, isSpecial) => {
+    // e.preventDefault();
+    console.log(editId, productName, category, isSpecial);
+    const newPro = {
+      productName,
+      category,
+      isSpecial,
+    };
+
+    fetch(`http://localhost:8000/api/product/${editId}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newPro),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data.result);
+        setEditModal(false);
         setProducts(data.result);
       })
       .catch((err) => console.log(err));
@@ -179,7 +202,13 @@ export default function Users() {
             </table>
           </div>
         </div>
-        {editModal && <EditModal editId = {editId} closeModal={() => setEditModal()} />}
+        {editModal && (
+          <EditModal
+            editId={editId}
+            closeModal={() => setEditModal()}
+            onUpdate={onUpdate}
+          />
+        )}
       </div>
     </div>
   );

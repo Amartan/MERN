@@ -1,0 +1,32 @@
+###
+POST http://localhost:8000/api/user
+Content-Type: application/json
+
+{
+  "email":"hitman@gmail.com",
+  "firstName":"42",
+  "lastName":"hm",
+  "userType":"hitman",
+  "userImg":"https://upload.wikimedia.org/wikipedia/en/8/84/Hitman_2015.jpg",
+  "userRank":"1",
+  "pword":"1fuWnnaD!e"
+}
+
+###
+GET http://localhost:8000/api/user
+
+
+
+###
+GET http://localhost:8000/api/user/
+
+
+###
+DELETE  http://localhost:8000/api/user/
+
+###
+PUT http://localhost:8000/api/user
+Content-Type: application/json
+
+
+//  ,"menuName":"1","link":"1","position":"1"
