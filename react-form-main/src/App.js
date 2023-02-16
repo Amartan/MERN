@@ -7,6 +7,7 @@ import Admin from "./Admin";
 import HomeLayout from "./HomeLayout";
 import AdminLayout from "./AdminLayout";
 import Users from "./Users";
+import Product from "./Products";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route element={<AdminLayout />}>
           <Route index path="/admin" element={<Admin />} />
           <Route path="/users" element={<Users />} />
+          <Route path="/products" element={<Product />} />
         </Route>
       </Routes>
     </div>

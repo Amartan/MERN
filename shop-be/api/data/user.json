@@ -1,12 +1,1 @@
-[
-  {
-    "id": "f4627f24-efad-452a-8484-ca3d79733772",
-    "email": "hitman@gmail.com",
-    "firstName": "42",
-    "lastName": "hm",
-    "userType": "hitman",
-    "userImg": "https://upload.wikimedia.org/wikipedia/en/8/84/Hitman_2015.jpg",
-    "userRank": "1",
-    "pword": "1fuWnnaD!e"
-  }
-]
+[{"id":"3c1395db-df5c-4e8e-adcb-b3e3543877a4","email":"butcher@gmail.com","firstName":"Pudge","lastName":"Butcher","userType":"pro","userImg":"","userRank":"500","pword":""},{"id":"73dc72ce-8dfc-48c5-b9bb-3551564504c3","email":"mirana@gmail.com","firstName":"Mirana","lastName":"Priestess of the Moon","userType":"kulkaz","userImg":"C:\\fakepath\\Pet-Products-Lovely-Vintage-Round-Cat-Sunglasses-Reflection-Eye-wear-glasses-For-Small-Dog-Cat-Pet.jpeg","userRank":"400","pword":"12345678"},{"id":"6cc884d0-9fe7-424b-b4f3-ed6f692ef732","email":"bountyHunter@gmail.com","firstName":"BH","lastName":"Hunter","userType":"noob","userImg":"","userRank":"2","pword":"12345678"},{"id":"6c01e066-395b-4b8e-a420-7e5ac84d69ef","email":"a","firstName":"b","lastName":"c","userType":"guest","userImg":"","userRank":0,"pword":""},{"id":"bf40e19d-9473-439a-bbbb-b50b2e703fc4","email":"a","firstName":"a","lastName":"a","userType":"noob","userImg":"","userRank":"1","pword":""},{"id":"39d44488-e508-4467-ae0e-c4fe146be7a6","email":"e","firstName":"e","lastName":"e","userType":"noob","userImg":"","userRank":"2","pword":"12345678"}]
