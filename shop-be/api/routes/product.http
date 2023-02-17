@@ -5,8 +5,12 @@ Content-Type: application/json
 {
     "productName": "something",
     "category": "shoes",
+    "brandName": "Gvsdamini",
     "isSpecial":"true",
-    "position": "1"
+    "price": "1",
+    "quantity":"100",
+    "thumbImg":"",
+    "slideImg":""
 }
 
 ###

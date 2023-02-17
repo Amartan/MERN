@@ -31,7 +31,16 @@ exports.get = (request, response) => {
 };
 
 exports.create = (request, response) => {
-  const { productName, category, isSpecial, position } = request.body;
+  const {
+    productName,
+    category,
+    brandName,
+    isSpecial,
+    price,
+    quantity,
+    thumbImg,
+    slideImg,
+  } = request.body;
   fs.readFile(dataFile, "utf-8", (readErr, data) => {
     if (readErr) {
       return response.json({ status: false, message: readErr });
@@ -43,8 +52,12 @@ exports.create = (request, response) => {
       id: uuid.v4(),
       productName,
       category,
+      brandName,
       isSpecial,
-      position,
+      price,
+      quantity,
+      thumbImg,
+      slideImg,
     };
 
     parsedData.push(newObj);
@@ -61,7 +74,16 @@ exports.create = (request, response) => {
 
 exports.update = (request, response) => {
   const { id } = request.params;
-  const { productName, category, isSpecial, position } = request.body;
+  const {
+    productName,
+    category,
+    brandName,
+    isSpecial,
+    price,
+    quantity,
+    thumbImg,
+    slideImg,
+  } = request.body;
   fs.readFile(dataFile, "utf-8", (readErr, data) => {
     if (readErr) {
       return response.json({ status: false, message: readErr });
@@ -71,7 +93,17 @@ exports.update = (request, response) => {
 
     const updateData = parsedData.map((productObj) => {
       if (productObj.id == id) {
-        return { ...productObj, productName, category, isSpecial, position };
+        return {
+          ...productObj,
+          productName,
+          category,
+          brandName,
+          isSpecial,
+          price,
+          quantity,
+          thumbImg,
+          slideImg,
+        };
       } else {
         return productObj;
       }

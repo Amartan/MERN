@@ -38,8 +38,8 @@ export default function Users() {
   const sendFIle = async (fieldName, files) => {
     setLoading(true);
     console.log(files);
-    const cloudinaryName = "dbvz2grpk";
-    const url = `htps://api.cloudinary.com/v1_1/${cloudinaryName}/upload`;
+    // const cloudinaryName = "dbvz2grpk";
+    const url = `https://api.cloudinary.com/v1_1/dbvz2grpk/upload`;
     const newArr = [];
     for (let i = 0; i < files[0].length; i++) {
       newArr.push(files[0][i]);

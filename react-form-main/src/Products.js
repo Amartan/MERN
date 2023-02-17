@@ -1,16 +1,24 @@
 import React, { useEffect, useState } from "react";
 import EditModal from "./editModal";
-import editModal from "./editModal";
+import axios from "axios";
 
 export default function Product() {
   const [productName, setName] = useState("");
   const [category, setCategory] = useState(0);
-  const [isSpecial, setIsSpecial] = useState(false);
   const [categories, setCategories] = useState([]);
+  const [brandName, setBrandName] = useState("");
+  const [brands, setBrands] = useState([]);
+  const [isSpecial, setIsSpecial] = useState(false);
+  const [price, setPrice] = useState(0);
+  const [quantity, setQuantity] = useState(0);
+  const [thumbImg, setThumbImg] = useState("");
+  const [slideImg, setSlideImg] = useState([]);
   const [products, setProducts] = useState([]);
   const [editModal, setEditModal] = useState(false);
   const [editId, setEditId] = useState("");
 
+  const [loading, setLoading] = useState(false);
+  const [productItem, setProductItem] = useState();
   // const categories = [];
   // const categories = ["Clothes", "Food", "Shoes"];
 
@@ -93,13 +101,38 @@ export default function Product() {
       .catch((err) => console.log(err));
   };
 
-  const onUpdate = (editId, productName, category, isSpecial) => {
+  const onUpdate = (
+    editId,
+    productName,
+    category,
+    brandName,
+    isSpecial,
+    price,
+    quantity,
+    thumbImg,
+    slideImg
+  ) => {
     // e.preventDefault();
-    console.log(editId, productName, category, isSpecial);
+    console.log(
+      editId,
+      productName,
+      category,
+      brandName,
+      isSpecial,
+      price,
+      quantity,
+      thumbImg,
+      slideImg
+    );
     const newPro = {
       productName,
       category,
+      brandName,
       isSpecial,
+      price,
+      quantity,
+      thumbImg,
+      slideImg,
     };
 
     fetch(`http://localhost:8000/api/product/${editId}`, {
@@ -114,6 +147,46 @@ export default function Product() {
         setProducts(data.result);
       })
       .catch((err) => console.log(err));
+  };
+
+  // Зураг нэмэх
+  const sendFIle = async (fieldName, files) => {
+    setLoading(true);
+    console.log(files);
+    // const cloudinaryName = "dbvz2grpk";
+    const url = `https://api.cloudinary.com/v1_1/dbvz2grpk/upload`;
+    const newArr = [];
+    for (let i = 0; i < files[0].length; i++) {
+      newArr.push(files[0][i]);
+    }
+
+    const promise = await Promise.all(
+      newArr.map((file) => {
+        const formData = new FormData();
+        formData.append("file", file);
+        formData.append("api_key", 625346339988351);
+        formData.append("folder", "ProductImages");
+        formData.append("upload_preset", "japlowjs");
+
+        return axios.post(url, formData);
+      })
+    );
+
+    console.log(promise);
+
+    const arr = [];
+
+    promise.map((res) => {
+      arr.push(res.data.secure_url);
+    });
+
+    if (fieldName == "userImg") {
+      setProductItem({
+        ...productItem,
+        userImg: arr,
+      });
+    }
+    setLoading(false);
   };
 
   return (
@@ -131,7 +204,7 @@ export default function Product() {
               />
             </div>
             <div className="mb-3">
-              <label className="form-label"> category</label>
+              <label className="form-label"> Category</label>
               <select
                 value={category}
                 className="form-control"
@@ -153,6 +226,74 @@ export default function Product() {
                 onChange={(e) => setIsSpecial(e.target.checked)}
               />
             </div>
+
+            <div className="mb-3">
+              <label className="form-label"> Select Brand</label>
+              <select
+                value={brandName}
+                className="form-control"
+                onChange={(e) => setBrandName(e.target.value)}
+              >
+                <option value={0}>Select</option>
+                {brands.map((item, index) => (
+                  <option value={item}>{item}</option>
+                ))}
+              </select>
+            </div>
+
+            <div className="mb-3">
+              <label className="form-label"> Price</label>
+              <input
+                type={"number"}
+                className="form-control"
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+              />
+            </div>
+
+            <div className="mb-3">
+              <label className="form-label"> Quantity</label>
+              <input
+                type={"number"}
+                className="form-control"
+                value={quantity}
+                onChange={(e) => setQuantity(e.target.value)}
+              />
+            </div>
+
+            <div className="mb-3">
+              <label className="form-label"> Thumb Img</label>
+              <input
+                type={"file"}
+                // accept="image/*"
+                className="form-control"
+                onChange={(e) => {
+                  console.log(e.target.files);
+                  const arr1 = [];
+                  arr1.push(e.target.files);
+                  sendFIle("thumbImg", arr1);
+                }}
+                // onChange={(e) => setUserImg(e.target.value)
+              />
+              {loading ? <div>Loading...</div> : ""}
+            </div>
+
+            <div className="mb-3">
+              <label className="form-label"> Slide Img</label>
+              <input
+                type={"file"}
+                // accept="image/*"
+                className="form-control"
+                onChange={(e) => {
+                  console.log(e.target.files);
+                  const arr1 = [];
+                  arr1.push(e.target.files);
+                  sendFIle("slideImg", arr1);
+                }}
+                // onChange={(e) => setUserImg(e.target.value)
+              />
+              {loading ? <div>Loading...</div> : ""}
+            </div>
             <div className="mb-3">
               <button onClick={onSave} className="btn btn-primary">
                 Save
@@ -172,32 +313,49 @@ export default function Product() {
           <div className="table-responsive">
             <table className="table">
               <thead>
-                <th>id</th>
                 <th>Name</th>
                 <th>category</th>
+                <th>Brand</th>
                 <th>Special</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Img</th>
                 <th>Edit</th>
                 <th>Delete</th>
               </thead>
               <tbody>
-                {products.map(({ id, productName, category, isSpecial }) => {
-                  //newdate = > date format
+                {products.map(
+                  ({
+                    id,
+                    productName,
+                    category,
+                    brandName,
+                    isSpecial,
+                    price,
+                    quantity,
+                    thumbimg,
+                  }) => {
+                    //newdate = > date format
 
-                  return (
-                    <tr>
-                      <td>{id}</td>
-                      <td>{productName}</td>
-                      <td>{category}</td>
-                      <td>{isSpecial ? "Yes" : "No"}</td>
-                      <td>
-                        <button onClick={() => onEdit(id)}>Edit</button>
-                      </td>
-                      <td>
-                        <button onClick={() => onDelete(id)}>Delete</button>
-                      </td>
-                    </tr>
-                  );
-                })}
+                    return (
+                      <tr>
+                        <td>{productName}</td>
+                        <td>{category}</td>
+                        <td>{brandName}</td>
+                        <td>{isSpecial ? "Yes" : "No"}</td>
+                        <td>{price}</td>
+                        <td>{quantity}</td>
+                        <td>{thumbimg}</td>
+                        <td>
+                          <button onClick={() => onEdit(id)}>Edit</button>
+                        </td>
+                        <td>
+                          <button onClick={() => onDelete(id)}>Delete</button>
+                        </td>
+                      </tr>
+                    );
+                  }
+                )}
               </tbody>
             </table>
           </div>
@@ -213,10 +371,6 @@ export default function Product() {
     </div>
   );
 }
-
-
-
-
 
 // import React, { useEffect, useState } from "react";
 
