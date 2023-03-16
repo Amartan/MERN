@@ -1,0 +1,29 @@
+###
+POST http://localhost:8000/api/category
+Content-Type: application/json
+
+{
+    "categoryName": "he",
+    "link": "www.furniture.mn",
+    "position": "4"
+}
+
+###
+GET http://localhost:8000/api/category
+
+###
+DELETE  http://localhost:8000/api/category/2ac95967-c7b1-4816-97bd-b06a5ab0cb74
+
+###
+PUT http://localhost:8000/api/category/3b2b0138-7f5e-4bdb-b080-a21c28075c98
+Content-Type: application/json
+
+{
+    "id": "3b2b0138-7f5e-4bdb-b080-a21c28075c98",
+    "categoryName": "Food",
+    "link": "www.food.mn",
+    "position":"3"
+}
+
+
+//  ,"categoryName":"1","link":"1","position":"1"
